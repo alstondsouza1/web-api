@@ -1,0 +1,26 @@
+services:
+  db:
+    image: mysql:latest
+    platform: "linux/amd64"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 2yI8JQN95yn7lGPc
+      MYSQL_DATABASE: recipes
+      MYSQL_USER: alston
+      MYSQL_PASSWORD: 4B76V3ddugOe93dz
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    platform: "linux/amd64"
+    restart: always
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: 2yI8JQN95yn7lGPc
+    ports:
+      - "8080:80"
