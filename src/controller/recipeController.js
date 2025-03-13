@@ -48,7 +48,7 @@ export const updateRecipe = async (req, res) => {
     console.log(affectedRows);
 
     if (affectedRows) {
-        res.status(200).json({
+        res.status(201).json({
             message: "success",
             data: affectedRows
         })
