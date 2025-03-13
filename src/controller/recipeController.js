@@ -13,7 +13,7 @@ export const recipeById = async (req, res) => {
     const recipe = await dataLayer.getRecipeById(recipeId);
 
     if (recipe) {
-        res.status(200).json({
+        res.status(201).json({
             message: "success",
             data: recipe
         })
